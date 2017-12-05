@@ -3,9 +3,11 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Vector;
 
+import model.Labyrinthe.Directions;
+
 public class Labyrinthe {
 //la labyrinthe doit etre compose de graphe
-	private Graph graphe;
+	static Graph graphe;
 	public Sommet getRandomVertex;
 	
 	public enum Directions {
@@ -51,4 +53,5 @@ public class Labyrinthe {
 			}
 		}
 	}
+	
 }

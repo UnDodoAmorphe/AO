@@ -4,12 +4,15 @@ import model.Labyrinthe.Directions;
 
 public class Sommet implements Comparable<Sommet>{
 private int x,y,nbr;
+private boolean containCandy;
+private boolean containButton;
 
 public Sommet(int x, int y, int nbr) {
 	this.x=x;
 	this.y=y;
 	this.nbr=nbr;
-	
+	this.containCandy=false;
+	this.containButton=false;
 }
 
 @Override
@@ -38,5 +41,33 @@ public int getY() {
 public int getNbr() {
 	// TODO Auto-generated method stub
 	return nbr;
+}
+public boolean setCandy() {
+	if ((isButton()==true) || (isCandy()==true)) {
+		return false;
+	}
+	else {
+		Candy myCandy = new Candy();
+		myCandy.addCandy(this);
+		this.containCandy = true;
+		return true;
+	}
+}
+public boolean isCandy() {
+	return this.containCandy;
+}
+public boolean setButton() {
+	if ((isButton()==true) || (isCandy()==true)) {
+		return false;
+	}
+	else {
+		Button myButton = new Button();
+		myButton.addButton(this);
+		this.containButton = true;
+		return true;
+	}
+}
+public boolean isButton() {
+	return this.containButton;
 }
 }
