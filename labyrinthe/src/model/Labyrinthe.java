@@ -5,9 +5,21 @@ import java.util.Vector;
 
 public class Labyrinthe {
 //la labyrinthe doit etre compose de graphe
-	private Graph graphe;
-	public Sommet getRandomVertex;
+	private Graph graphe = null;
+	private Sommet randomVertex = null;
 	
+	public Graph getGraphe() {
+		return graphe;
+	}
+
+
+
+	public Sommet getRandomVertex() {
+		return randomVertex = new Sommet();
+	}
+
+
+
 	public enum Directions {
 		NORTH,
 		SOUTH,

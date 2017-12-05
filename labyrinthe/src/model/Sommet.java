@@ -9,7 +9,9 @@ public Sommet(int x, int y, int nbr) {
 	this.x=x;
 	this.y=y;
 	this.nbr=nbr;
-	
+}
+
+public Sommet () {
 }
 
 @Override
