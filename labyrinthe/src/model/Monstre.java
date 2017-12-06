@@ -22,7 +22,7 @@ public class Monstre {
 		return this.cible;
 	}
 	
-	public ArrayList zoneJoueur(Joueur joueur, Labyrinthe labyrinthe, ArrayList zone) {
+	/*public ArrayList zoneJoueur(Joueur joueur, Labyrinthe labyrinthe, ArrayList zone) {
 		Sommet pos_Joueur = Joueur.getCoordonnees();
 		zone.add(pos_Joueur);
 		for(Directions dir:Directions.values()){
@@ -35,7 +35,7 @@ public class Monstre {
 			}
 		}
 		return zone;
-	}
+	}*/
 	
 	
 	public void spawnMonstre(Labyrinthe labyrinthe, ArrayList zone) {
