@@ -3,13 +3,13 @@ package model;
 import model.Labyrinthe.Directions;
 
 public class Sommet implements Comparable<Sommet>{
-private int x,y,nbr;
+private int x,y,nbr,nbrMonstreSpawn;
 
-public Sommet(int x, int y, int nbr) {
+public Sommet(int x, int y, int nbr, int nbrMonstreSpawn) {
 	this.x=x;
 	this.y=y;
 	this.nbr=nbr;
-	
+	this.nbrMonstreSpawn=nbrMonstreSpawn;
 }
 
 @Override
@@ -38,5 +38,20 @@ public int getY() {
 public int getNbr() {
 	// TODO Auto-generated method stub
 	return nbr;
+}
+
+public void setNbr(int i) {
+	// TODO Auto-generated method stub
+	this.nbr=i;
+}
+
+public void setNbrMonstreSpawn(int i) {
+	// TODO Auto-generated method stub
+	this.nbrMonstreSpawn=i;
+}
+
+public int getNbrMonstreSpawn() {
+	// TODO Auto-generated method stub
+	return nbrMonstreSpawn;
 }
 }

@@ -14,4 +14,14 @@ public class Graph extends SimpleGraph<Sommet, Arc> {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	public Sommet getVertexByDir(Sommet actual, Directions dir) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean isConnected(Sommet vertex, Sommet next) {//sprite
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

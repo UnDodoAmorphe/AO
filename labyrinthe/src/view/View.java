@@ -24,7 +24,7 @@ public class View extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		
 		primaryStage.setTitle("Pac man");
-		Frame.drawFrame(primaryStage, 10, 15);
+		Frame.drawFrame(primaryStage, 16, 16);
 		
 		primaryStage.show();
 

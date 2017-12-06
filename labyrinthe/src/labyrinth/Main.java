@@ -4,7 +4,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import controller.Controller;
 
-public class Labyrinth extends Application{
+public class Main extends Application{
 
 	private static Controller controller;
 	public static void main(String[] args) {
