@@ -7,9 +7,22 @@ import model.Labyrinthe.Directions;
 
 public class Labyrinthe {
 //la labyrinthe doit etre compose de graphe
-	static Graph graphe;
-	public Sommet getRandomVertex;
+
+	private Graph graphe = null;
+	private Sommet randomVertex = null;
 	
+	public Graph getGraphe() {
+		return graphe;
+	}
+
+
+
+	public Sommet getRandomVertex() {
+		return randomVertex = new Sommet();
+	}
+
+
+
 	public enum Directions {
 		NORTH,
 		SOUTH,
@@ -33,7 +46,7 @@ public class Labyrinthe {
 
 
 
-		//pour chacune de ces directions, on avance en profondeur d’abord
+		//pour chacune de ces directions, on avance en profondeur dâ€™abord
 		for(int i=0;i<4;++i){
 			Directions dir=directions[i];
 			if(vertex.inBorders(dir)&&Graph.doesntExist(vertex,dir)){
