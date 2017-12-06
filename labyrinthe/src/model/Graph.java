@@ -14,4 +14,24 @@ public class Graph extends SimpleGraph<Sommet, Arc> {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	public Sommet randomVertex() {
+		//myVertexes = this.vertexSet(); -> puis parcourir puis en choisisr un random ?
+		return null;
+	}
+
+	public Arc randomEdge() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Arc getEdge(Sommet vertex, Directions dir) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Sommet getVertexByDir(Sommet vertex, Directions dir) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

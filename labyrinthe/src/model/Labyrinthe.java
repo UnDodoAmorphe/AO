@@ -3,8 +3,11 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Vector;
 
+import model.Labyrinthe.Directions;
+
 public class Labyrinthe {
 //la labyrinthe doit etre compose de graphe
+
 	private Graph graphe = null;
 	private Sommet randomVertex = null;
 	
@@ -43,7 +46,7 @@ public class Labyrinthe {
 
 
 
-		//pour chacune de ces directions, on avance en profondeur d’abord
+		//pour chacune de ces directions, on avance en profondeur dâ€™abord
 		for(int i=0;i<4;++i){
 			Directions dir=directions[i];
 			if(vertex.inBorders(dir)&&Graph.doesntExist(vertex,dir)){
@@ -63,4 +66,5 @@ public class Labyrinthe {
 			}
 		}
 	}
+	
 }
