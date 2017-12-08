@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Vector;
 
+import model.Arc.Type;
 import model.Labyrinthe.Directions;
 
 public class Labyrinthe {
@@ -10,6 +11,11 @@ public class Labyrinthe {
 
 	private Graph graphe = null;
 	private Sommet randomVertex = null;
+	
+	public Labyrinthe() {
+		graphe = new Graph(Arc.class);
+		randomVertex = new Sommet(1, 1);
+	}
 	
 	public Graph getGraphe() {
 		return graphe;
@@ -59,12 +65,37 @@ public class Labyrinthe {
 				case EAST:xt=x+1;yt=y;break;
 				case WEST:xt=x-1;yt=y;break;
 				}
-				Sommet next= new Sommet(xt,yt,vertex.getNbr()+1);
+				Sommet next= new Sommet(xt,yt);
+				next.setNbr(vertex.getNbr()+1);
 				graphe.addVertex(next);
 				graphe.addEdge(vertex,next);
 				buildRandomPath(next);
 			}
 		}
+	}
+	
+	public void openDoorRandom() {
+		Random random = new Random();
+		for (int i=0; i<1000; i++) {
+			Sommet vertex=graphe.randomVertex();
+			if (vertex!=null) {
+				Directions dir= Directions.values()[random.nextInt(Directions.values().length)];
+				if (isWall(vertex, dir)){
+					Sommet vertex2= graphe.getVertexByDir(vertex, dir);
+					if (vertex2!=null) {
+						Arc edge= graphe.getEdge(vertex, vertex2);
+						if (edge==null) {
+							new Arc(Type.OPENED_DOOR);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	private boolean isWall(Sommet vertex, Directions dir) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 }

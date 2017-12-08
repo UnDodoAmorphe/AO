@@ -7,10 +7,9 @@ private int x,y,nbr;
 private boolean containCandy;
 private boolean containButton;
 
-public Sommet(int x, int y, int nbr) {
+public Sommet(int x, int y) {
 	this.x=x;
 	this.y=y;
-	this.nbr=nbr;
 
 	this.containCandy=false;
 	this.containButton=false;
@@ -75,5 +74,9 @@ public boolean setButton() {
 }
 public boolean isButton() {
 	return this.containButton;
+}
+
+public void setNbr(int nbr) {
+	this.nbr = nbr;
 }
 }
