@@ -19,5 +19,5 @@ public class Main extends Application{
 		controller.start(stage);
 		
 	}
-
+Public String variableInutile = "ligneAenlever";
 }
