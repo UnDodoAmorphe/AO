@@ -20,4 +20,5 @@ public class Main extends Application{
 		
 	}
 Public String variableInutile = "ligneAenlever";
+Public String variableInutile2 = "ligneAenlever";
 }
