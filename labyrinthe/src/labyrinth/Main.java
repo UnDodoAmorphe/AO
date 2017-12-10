@@ -19,6 +19,4 @@ public class Main extends Application{
 		controller.start(stage);
 		
 	}
-Public String variableInutile = "ligneAenlever";
-Public String variableInutile2 = "ligneAenlever";
 }
