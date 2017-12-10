@@ -28,9 +28,23 @@ public int compareTo(Sommet o) {
 		return o.y-y;
  	}
 
-public boolean inBorders(Directions dir) {
+public boolean inBorders(Directions dir) {// A FAIRE
 	// TODO Auto-generated method stub
-	return false;
+	if (x==0 && dir==Directions.WEST) {
+		return false;
+	}
+	else if (x==15 && dir==Directions.EAST) {
+		return false;
+	}
+	else if (y==0 && dir==Directions.NORTH) {
+		return false;
+	}
+	else if (y==15 && dir==Directions.SOUTH) {
+		return false;
+	}
+	else {
+		return true;
+	}
 }
 
 public int getX() {
