@@ -1,22 +1,26 @@
 package model;
 
+import java.util.Vector;
+
 import model.Labyrinthe.Directions;
+import model.Arc.Type;
 
 public class Sommet implements Comparable<Sommet>{
-private int x,y,nbr;
+private int x, y, nbr;
+private Graph graph;
+private Vector<Arc> arcs;
+
 private boolean containCandy;
 private boolean containButton;
 
-public Sommet(int x, int y) {
+public Sommet(int x, int y, Graph g) {
 	this.x=x;
 	this.y=y;
+	graph = g;
+	arcs = new Vector<>();
 
 	this.containCandy=false;
 	this.containButton=false;
-
-}
-
-public Sommet () {
 
 }
 
@@ -26,25 +30,57 @@ public int compareTo(Sommet o) {
 		return o.x-x;
 	else
 		return o.y-y;
- 	}
+}
+
+public Vector<Arc> getEdges() {
+    return arcs;
+}
+
+public void addEdge(Arc a){
+    arcs.add(a);
+}
+
+public Vector<Directions> getArcsClosed() {
+	
+	 Vector<Directions> dir = new Vector<>();
+     for (Arc e : arcs){
+    	 
+         if (e.getType() == Type.WALL || e.getType() == Type.CLOSED_DOOR)
+         dir.add(e.getDirection());
+     }
+
+     return dir;
+}
+
 
 public boolean inBorders(Directions dir) {
-	// TODO Auto-generated method stub
-	return false;
+	
+	switch (dir) {
+	case NORTH:
+		return y > 0;
+	case SOUTH:
+		return y < graph.getSizeY() - 1;
+	case EAST:
+		return x < graph.getSizeX() - 1;
+	case WEST:
+		return x > 0;
+	default:
+		return false;
+	}
 }
 
 public int getX() {
-	// TODO Auto-generated method stub
+	
 	return x;
 }
 
 public int getY() {
-	// TODO Auto-generated method stub
+	
 	return y;
 }
 
 public int getNbr() {
-	// TODO Auto-generated method stub
+	
 	return nbr;
 }
 public boolean setCandy() {
@@ -78,5 +114,13 @@ public boolean isButton() {
 
 public void setNbr(int nbr) {
 	this.nbr = nbr;
+}
+
+public void setX(int x) {
+	this.x = x;
+}
+
+public void setY(int y) {
+	this.y = y;
 }
 }

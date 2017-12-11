@@ -15,14 +15,12 @@ import javafx.stage.Stage;
 public class Controller extends Application{
 
 	private static View view = null;
-	private static Labyrinthe labyrinthe = null;
 	private static Controller INSTANCE = null;
 
 	private Controller() {
 
 		view = View.getInstance();
 		view.setOnAction();
-		labyrinthe = new Labyrinthe();
 	}
 
 
@@ -36,17 +34,21 @@ public class Controller extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		labyrinthe.buildRandomPath(labyrinthe.getRandomVertex());
-		//HashSet<Sommet> sommets = (HashSet<Sommet>) labyrinthe.getGraphe().vertexSet();
-		
-		/*Sommet s = null, sp = null;
-		
-		for (Iterator<Sommet> i = sommets.iterator(); i.hasNext();) {
-			s = sp;
-			sp = i.next();
-			sp.toString();
+		Game.initGame();
+		Game.getLabyrinthe().makeGraph(16, 16);
+		view.start(primaryStage);
+		Frame.drawFrame(primaryStage, 16, 16);
+		for(Sommet[] paire : Game.getLabyrinthe().getWalls()) {
+			Frame.drawWall(paire[0].getX(), paire[0].getY(), paire[1].getX(), paire[1].getY());
 		}
-		Graph.doesntExist(s, Directions.NORTH); */
+		
+		/*
+		for (Iterator<Sommet> i = sommets.iterator(); i.hasNext();) {
+			sp = s;
+			s = i.next();
+			if (!labyrinthe.getGraphe().containsEdge(s, sp))
+				Frame.drawWall(s.getX(), s.getY(), sp.getX(), sp.getY());
+		}*/
 		
 		/*for (int y = 0 ; y < View.HEIGHT ; y++) {
 			for (int x = 0 ; x < View.WIDTH ; x++) {
@@ -66,7 +68,7 @@ public class Controller extends Application{
 			}
 		} */
 				
-		view.start(primaryStage);
+		
 		
 
 	}

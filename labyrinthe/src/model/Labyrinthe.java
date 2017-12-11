@@ -3,30 +3,38 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Vector;
 
+import controller.Controller;
 import model.Arc.Type;
 import model.Labyrinthe.Directions;
 
 public class Labyrinthe {
-//la labyrinthe doit etre compose de graphe
 
-	private Graph graphe = null;
-	private Sommet randomVertex = null;
-	
-	public Labyrinthe() {
-		graphe = new Graph(Arc.class);
-		randomVertex = new Sommet(1, 1);
+	private Graph graph = null;
+	private static Labyrinthe labyrinthe = null;
+
+	private Labyrinthe() {
+
 	}
-	
+
 	public Graph getGraphe() {
-		return graphe;
+		return graph;
 	}
 
-
-
-	public Sommet getRandomVertex() {
-		return randomVertex = new Sommet();
+	public static Labyrinthe getInstance () {
+		if (labyrinthe == null)
+			labyrinthe = new Labyrinthe();
+		else
+			System.out.println("Instance de Labyrinthe déjà créée.\n");
+		return labyrinthe;
 	}
 
+	public void makeGraph (int width, int height) {
+		graph = new Graph(Arc.class);
+		graph.setSizeX(width);
+		graph.setSizeY(height);
+		graph.createVertexArray();
+		graph.generateGraph();
+	}
 
 
 	public enum Directions {
@@ -34,68 +42,50 @@ public class Labyrinthe {
 		SOUTH,
 		EAST,
 		WEST;
-		}
-	
-	
-	public void buildRandomPath(Sommet vertex){
-		//une liste aleatoire des 4 directions
-		Vector<Directions>v=new Vector<Directions>();
-		for(int i=0; i<4; ++i)
-			v.add(Directions.values()[i]);
-		Directions directions[]=new Directions[4];
-		Random random = new Random();
-		for(int i=0;i<directions.length;++i){
-			int index=random.nextInt(v.size());
-			directions[i]=v.get(index);
-			v.remove(index);
-		}
-
-
-
-		//pour chacune de ces directions, on avance en profondeur d’abord
-		for(int i=0;i<4;++i){
-			Directions dir=directions[i];
-			if(vertex.inBorders(dir)&&Graph.doesntExist(vertex,dir)){
-				int x=vertex.getX();
-				int y=vertex.getY();
-				int xt=0,yt=0;
-				switch(dir){
-				case NORTH:xt=x;yt=y-1;break;
-				case SOUTH:xt=x;yt=y+1;break;
-				case EAST:xt=x+1;yt=y;break;
-				case WEST:xt=x-1;yt=y;break;
-				}
-				Sommet next= new Sommet(xt,yt);
-				next.setNbr(vertex.getNbr()+1);
-				graphe.addVertex(next);
-				graphe.addEdge(vertex,next);
-				buildRandomPath(next);
-			}
-		}
 	}
-	
-	public void openDoorRandom() {
-		Random random = new Random();
-		for (int i=0; i<1000; i++) {
-			Sommet vertex=graphe.randomVertex();
-			if (vertex!=null) {
-				Directions dir= Directions.values()[random.nextInt(Directions.values().length)];
-				if (isWall(vertex, dir)){
-					Sommet vertex2= graphe.getVertexByDir(vertex, dir);
-					if (vertex2!=null) {
-						Arc edge= graphe.getEdge(vertex, vertex2);
-						if (edge==null) {
-							new Arc(Type.OPENED_DOOR);
-						}
+
+
+
+
+	public ArrayList<Sommet[]> getWalls() {
+
+		ArrayList<Sommet[]> walls = new ArrayList<Sommet[]>();
+
+		for(int x = 0; x < graph.getSizeX(); x++) {
+			for(int y = 0; y < graph.getSizeY(); y++) {
+
+				Sommet v = graph.getVertex(x, y);
+				Vector<Directions> dir = v.getArcsClosed();
+				for(Directions d : dir) {
+					Sommet[] paire = new Sommet[2];
+					paire[0] = v;
+					switch(d) {
+					case EAST:
+						if (x < graph.getSizeX())
+							paire[1] = graph.getVertex(v.getX() + 1, v.getY());
+						break;
+					case WEST:
+						if (x > 0)
+							paire[1] = graph.getVertex(v.getX() - 1, v.getY());
+						break;
+					case NORTH:
+						if (y > 0)
+							paire[1] = graph.getVertex(v.getX(), v.getY() - 1);
+						break;
+					case SOUTH:
+						if (y < graph.getSizeY())
+							paire[1] = graph.getVertex(v.getX(), v.getY() + 1);
+						break;
 					}
+
+						walls.add(paire);
 				}
 			}
 		}
+
+		return walls;
+
+
 	}
-	
-	private boolean isWall(Sommet vertex, Directions dir) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	
+
 }
