@@ -52,6 +52,14 @@ public Vector<Directions> getArcsClosed() {
      return dir;
 }
 
+public boolean hasArcOpen(Directions d){
+    for (Arc e : arcs)
+        if (e.getDirection() == d && e.getType() != Type.WALL && e.getType() != Type.CLOSED_DOOR)
+            return true;
+
+    return false;
+}
+
 
 public boolean inBorders(Directions dir) {
 	

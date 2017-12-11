@@ -61,7 +61,7 @@ public class Labyrinthe {
 					paire[0] = v;
 					switch(d) {
 					case EAST:
-						if (x < graph.getSizeX())
+						if (x < graph.getSizeX() - 1)
 							paire[1] = graph.getVertex(v.getX() + 1, v.getY());
 						break;
 					case WEST:
@@ -73,7 +73,7 @@ public class Labyrinthe {
 							paire[1] = graph.getVertex(v.getX(), v.getY() - 1);
 						break;
 					case SOUTH:
-						if (y < graph.getSizeY())
+						if (y < graph.getSizeY() - 1)
 							paire[1] = graph.getVertex(v.getX(), v.getY() + 1);
 						break;
 					}

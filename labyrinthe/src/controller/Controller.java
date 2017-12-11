@@ -36,6 +36,7 @@ public class Controller extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		Game.initGame();
 		Game.getLabyrinthe().makeGraph(16, 16);
+		Game.getLabyrinthe().getGraphe().drawGraphOnConsole();
 		view.start(primaryStage);
 		Frame.drawFrame(primaryStage, 16, 16);
 		for(Sommet[] paire : Game.getLabyrinthe().getWalls()) {

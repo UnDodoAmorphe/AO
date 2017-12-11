@@ -137,6 +137,33 @@ public class Graph extends SimpleGraph<Sommet, Arc> {
 		
 		return getVertex (vertex.getX(), vertex.getY()) == null;
 	}
+	
+	public void drawGraphOnConsole(){
+		
+        for (int j = 0; j < sizeY; j++){
+            for (int i = 0; i < sizeX; i++){
+            	
+                System.out.print("o");
+                
+                if (getVertex(i, j).hasArcOpen(Directions.EAST))
+                    System.out.print("--");
+                else
+                    System.out.print("  ");
+            }
+            
+            System.out.println("");
+            
+            for (int i = 0; i < sizeX; i++){
+                if (getVertex(i, j).hasArcOpen(Directions.SOUTH))
+                    System.out.print("|");
+                else
+                    System.out.print(" ");
+
+                System.out.print("  ");
+            }
+            System.out.println("");
+        }
+    }
 
 
 	public Sommet randomVertex() {
