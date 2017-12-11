@@ -78,6 +78,7 @@ public class Labyrinthe {
 						break;
 					}
 
+					if (paire [0] != null && paire [1] != null)
 						walls.add(paire);
 				}
 			}
