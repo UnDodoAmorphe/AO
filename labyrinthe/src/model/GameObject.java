@@ -15,8 +15,8 @@ public abstract class GameObject {
 	public enum KindOfGameObject {
 	    PLAYER,
 	    MONSTER,
-	    DOOR,
-	    ONOFF,
+	    EXIT,
+	    DOORS,
 	    BONUS
 	}
 	
@@ -60,7 +60,7 @@ public abstract class GameObject {
 		this.image = ImageGameObject;
 	}
 
-	public ImageGameObject getSpriteType() {
+	public ImageGameObject getImageGameObject() {
 		return image;
 	}
 

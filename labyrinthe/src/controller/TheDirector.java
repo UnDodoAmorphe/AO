@@ -123,7 +123,7 @@ public class TheDirector {
     public static boolean tryMoveCharacter(Player player, Directions dir){
         int x = player.getX();
         int y = player.getY();
-        boolean able = !maze.getWallsAt(x, y).contains(direction) || maze.getDoorsAt(x, y, false).contains(dir);//a adapter a notre code
+        boolean able = !maze.getWallsAt(x, y).contains(direction) || maze.getDoorsAt(x, y, false).contains(dir);//a adapter a notre code. Pour l'instant : maze = labyrinthe
         if (able) {
         	player.move(dir);
         	if(player.getType() == KindOfGameObject.PLAYER)
