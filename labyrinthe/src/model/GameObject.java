@@ -1,8 +1,8 @@
 package model;
 
 public abstract class GameObject {
-	private int x;
-	private int y;
+	protected int x;
+	protected int y;
 	private KindOfGameObject type;
 	private ImageGameObject image;
 
@@ -20,7 +20,7 @@ public abstract class GameObject {
 	    BONUS
 	}
 	
-	public enum ImageGameObject {
+	public enum ImageGameObject {//a mettre dans view ? 
 	    PLAYER,
 	    MONSTER,
 	    EXIT,

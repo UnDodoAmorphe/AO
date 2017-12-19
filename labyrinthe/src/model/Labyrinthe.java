@@ -88,5 +88,35 @@ public class Labyrinthe {
 
 
 	}
+	//FONCTIONS A FAIRE :
+	//Boutons/monstres/Player/sortie/porte
+	 /*public boolean putCandy() {
+	    	if ((isButton()==true) || (isCandy()==true)) {
+	    		return false;
+	    	}
+	    	else {
+	    		Candy myCandy = new Candy();
+	    		myCandy.addCandy(this);
+	    		this.containCandy = true;
+	    		return true;
+	    	}
+	    }
+	 
+	 public boolean setButton() {
+			if ((isButton()==true) || (isCandy()==true)) {
+				return false;
+			}
+			else {
+				Button myButton = new Button();
+				myButton.addButton(this);
+				this.containButton = true;
+				return true;
+			}
+		}
+*/
 
+	public static Directions getMonsterDirection(int x, int y) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

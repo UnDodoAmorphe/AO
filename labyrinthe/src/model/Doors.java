@@ -1,19 +1,18 @@
+package model;
 import com.sun.javafx.geom.Edge;
-
-import model.GameObject;
-import model.Labyrinthe;
+import model.Arc.Type;
 
 public class Doors extends GameObject {
 
     private boolean isOpen;
-    private Edge edge;
+    private Arc edge;
 
     public Doors() {
         super(KindOfGameObject.DOORS);
         Labyrinthe lab = Labyrinthe.getInstance();
         isOpen = false;
-        this.edge = lab.getRandomEdge();
-        this.edge.setWallType(WallType.CLOSED_DOOR);
+        this.edge = lab.getGraphe().randomEdge();
+        this.edge.setType(Type.CLOSED_DOOR);
         setImageGameObject(ImageGameObject.SWITCH_OFF);
     }
 
@@ -26,8 +25,8 @@ public class Doors extends GameObject {
     @Override
     public void eventCollision() {
         isOpen = !isOpen;
-        this.edge.setWallType(isOpen ? WallType.OPENED_DOOR : WallType.CLOSED_DOOR);
-        setSpriteType(isOpen ? ImageGameObject.SWITCH_ON : ImageGameObject.SWITCH_OFF);
+        this.edge.setType(isOpen ? Type.OPENED_DOOR : Type.CLOSED_DOOR);
+        setImageGameObject(isOpen ? ImageGameObject.SWITCH_ON : ImageGameObject.SWITCH_OFF);
     }
 
 }

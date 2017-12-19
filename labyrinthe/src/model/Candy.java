@@ -27,5 +27,13 @@ public class Candy extends GameObject{
     	TheDirector.addNbBonus();
     	TheDirector.removeGameObject(this);
     }
+
+
+    public void addCandy(Sommet vertex) {
+    	//Candy myCandy= new Candy();//(vertex.getX(), vertex.getY());
+    	this.x=vertex.getX();
+    	this.y=vertex.getY();
+    }
 }
+
 

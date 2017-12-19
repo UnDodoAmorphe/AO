@@ -1,5 +1,7 @@
+package view;
 import java.util.LinkedList;
 
+import controller.SpriteManager;
 import controller.TheDirector;
 import model.GameObject;
 import model.GameObject.ImageGameObject;
@@ -7,7 +9,7 @@ import model.GameObject.ImageGameObject;
 public class GameObjectDrawer {
 	public GameObjectDrawer() {;}
 	
-    public static void drawEntities(){
+    /*public static void drawEntities(){
         LinkedList<GameObject> gameObjects = TheDirector.getGameObject();
         cleanEntities();
         for (GameObject e : gameObjects){
@@ -28,5 +30,5 @@ public class GameObjectDrawer {
     public static void renderEntities(){
         for (Node n : drawnEntities)
             pane.getChildren().add(n);
-    }
+    }*/
 }

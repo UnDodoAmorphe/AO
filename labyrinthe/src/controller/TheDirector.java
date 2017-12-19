@@ -57,7 +57,7 @@ public class TheDirector {
         return random;
     }
 
-    public static Labyrinthe getMaze() {
+    public static Labyrinthe getLab() {
         return lab;
     }
 
@@ -65,7 +65,7 @@ public class TheDirector {
         CandiesNumber += 1;
     }
     
-    private static boolean isNPC(int x, int y, Directions d) {
+    private static boolean isMonster(int x, int y, Directions d) {
     	int newX = x;
     	int newY = y;
     	switch(d) {
@@ -91,7 +91,7 @@ public class TheDirector {
     	return false;
     }
     
-    public static void tryMoveNPCs() {
+    public static void tryMoveMonsters() {
     	LinkedList<Player> warehouse = new LinkedList<>();
     	int[] bitmap = new int[monsters.size()];
     	int i = 0;
@@ -111,7 +111,7 @@ public class TheDirector {
 	        	if(dir != null) {
 	        		boolean isMonster = isMonster(monster.getX(), monster.getY(), dir);
 	        		if(!isMonster) {
-	        			hasMoved = tryMoveCharacter(monster, dir);
+	        			//hasMoved = tryMoveCharacter(monster, dir);
 	        			if(hasMoved)
 	        				bitmap[warehouse.indexOf(monster)] = 1;
 	        		}
@@ -120,18 +120,19 @@ public class TheDirector {
     	}
     }
 
-    public static boolean tryMoveCharacter(Player player, Directions dir){
+    /*public static boolean tryMoveCharacter(Player player, Directions dir){
+        A REFAIRE
+        //recuperer les aretes du sommet sur lesquelles se trouve le joueur. On prend la direction en parametre, on regarde le type de l'arc et PAF, ca fait des chocapics. Yolo.
         int x = player.getX();
         int y = player.getY();
-        boolean able = !maze.getWallsAt(x, y).contains(direction) || maze.getDoorsAt(x, y, false).contains(dir);//a adapter a notre code. Pour l'instant : maze = labyrinthe
+        boolean able = !maze.getWallsAt(x, y).contains(dir) || maze.getDoorsAt(x, y, false).contains(dir);//a adapter a notre code. Pour l'instant : maze = labyrinthe
         if (able) {
         	player.move(dir);
         	if(player.getType() == KindOfGameObject.PLAYER)
         		maze.updateDistFromPlayer(getPlayer().getX(), TheDirector.getPlayer().getY());
             EventManager.manageCollision();
-
-            
         }
+    
         return able;
-    }
+    }*/
 }

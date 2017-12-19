@@ -91,32 +91,13 @@ public int getNbr() {
 	
 	return nbr;
 }
-public boolean setCandy() {
-	if ((isButton()==true) || (isCandy()==true)) {
-		return false;
-	}
-	else {
-		Candy myCandy = new Candy();
-		myCandy.addCandy(this);
-		this.containCandy = true;
-		return true;
-	}
-}
-public boolean isCandy() {
+
+public boolean containsCandy() {
 	return this.containCandy;
 }
-public boolean setButton() {
-	if ((isButton()==true) || (isCandy()==true)) {
-		return false;
-	}
-	else {
-		Button myButton = new Button();
-		myButton.addButton(this);
-		this.containButton = true;
-		return true;
-	}
-}
-public boolean isButton() {
+
+
+public boolean containsButton() {
 	return this.containButton;
 }
 
