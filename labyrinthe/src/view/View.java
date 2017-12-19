@@ -8,8 +8,6 @@ import javafx.stage.Stage;
 
 public class View extends Application{
 	
-	public static final int WIDTH = 16;
-	public static final int HEIGHT = 16;
 	
 	private static View INSTANCE = null;
 
@@ -27,7 +25,6 @@ public class View extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		
 		primaryStage.setTitle("Pac man");
-		Frame.drawFrame(primaryStage, WIDTH, HEIGHT);
 		
 		primaryStage.show();
 
