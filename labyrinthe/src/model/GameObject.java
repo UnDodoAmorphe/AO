@@ -5,6 +5,7 @@ import view.GameObjectDrawer.ImageGameObject;
 public abstract class GameObject {
 	protected Sommet sommet;
 	protected Arc edge;
+	
 	private KindOfGameObject type;
 	private ImageGameObject image;
 
@@ -39,8 +40,9 @@ public abstract class GameObject {
 	}
 
 
-	public void setSommet(Sommet sommet) {
-		this.sommet = sommet;
+	public void setSommet(int x, int y) {
+		sommet.setX(x);
+		sommet.setY(y);
 	}
 
 

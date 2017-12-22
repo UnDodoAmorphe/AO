@@ -32,5 +32,5 @@ public class Doors extends GameObject {
     public boolean isOpened() {
     	return isOpen;
     }
-
+    
 }

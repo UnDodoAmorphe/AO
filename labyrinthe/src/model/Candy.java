@@ -30,11 +30,6 @@ public class Candy extends GameObject{
     }
 
 
-    public void addCandy(Sommet vertex) {
-    	//Candy myCandy= new Candy();//(vertex.getX(), vertex.getY());
-    	this.x=vertex.getX();
-    	this.y=vertex.getY();
-    }
 }
 
 

@@ -1,11 +1,12 @@
 package model;
 
 import model.Labyrinthe.Directions;
+import view.GameObjectDrawer.ImageGameObject;
 
 public class Player extends GameObject{
 
-    public Player(int x, int y, boolean isPlayer){
-        super(x, y, (isPlayer ? KindOfGameObject.PLAYER : KindOfGameObject.MONSTER));
+    public Player(Sommet sommet, boolean isPlayer){
+        super(sommet, (isPlayer ? KindOfGameObject.PLAYER : KindOfGameObject.MONSTER));
         setImageGameObject((isPlayer ? ImageGameObject.PLAYER : ImageGameObject.MONSTER));
     }
 
@@ -15,19 +16,19 @@ public class Player extends GameObject{
     }
 
     public void moveUp(){
-        setY(getY() - 1);
+    	setSommet(getSommet().getX(), getSommet().getY() - 1);
     }
 
     public void moveDown(){
-        setY(getY() + 1);
+    	setSommet(getSommet().getX(), getSommet().getY() + 1);
     }
 
     public void moveRight(){
-        setX(getX() + 1);
+    	setSommet(getSommet().getX() + 1, getSommet().getY());
     }
 
     public void moveLeft(){
-        setX(getX() - 1);
+    	setSommet(getSommet().getX() - 1, getSommet().getY());
     }
     
     public void move(Directions d) {
