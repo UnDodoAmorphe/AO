@@ -1,14 +1,14 @@
 package model;
 
+import view.GameObjectDrawer.ImageGameObject;
+
 public abstract class GameObject {
-	protected int x;
-	protected int y;
+	protected Sommet sommet;
 	private KindOfGameObject type;
 	private ImageGameObject image;
 
-	public GameObject (int x, int y, KindOfGameObject type){
-		this.x = x;
-		this.y = y;
+	public GameObject (Sommet sommet, KindOfGameObject type){
+		this.sommet = sommet;
 		this.type = type;
 	}
 	
@@ -17,19 +17,7 @@ public abstract class GameObject {
 	    MONSTER,
 	    EXIT,
 	    DOORS,
-	    BONUS
-	}
-	
-	public enum ImageGameObject {//a mettre dans view ? 
-	    PLAYER,
-	    MONSTER,
-	    EXIT,
-	    SWITCH_ON,
-	    SWITCH_OFF,
-	    CANDY1,
-	    CANDY2,
-	    CANDY3,
-	    CANDY4
+	    CANDY
 	}
 
 	public GameObject (KindOfGameObject type){
@@ -40,21 +28,15 @@ public abstract class GameObject {
 		return type;
 	}
 
-	public int getX() {
-		return x;
+	public Sommet getSommet() {
+		return sommet;
 	}
 
-	public int getY() {
-		return y;
+
+	public void setSommet(Sommet sommet) {
+		this.sommet = sommet;
 	}
 
-	public void setX(int x) {
-		this.x = x;
-	}
-
-	public void setY(int y) {
-		this.y = y;
-	}
 
 	public void setImageGameObject(ImageGameObject ImageGameObject) {
 		this.image = ImageGameObject;
@@ -65,7 +47,7 @@ public abstract class GameObject {
 	}
 
 	public boolean ifCollision(GameObject e){
-		return (this.x == e.x && this.y == e.y);
+		return (this.sommet == e.sommet);
 	}
 
 	public abstract void eventCollision();

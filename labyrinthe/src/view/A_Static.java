@@ -16,6 +16,5 @@ public abstract class A_Static implements I_Behaviour {
         Image i = new Image("file:" + path);
         return i;
     }
-	public abstract void setState ();
 
 }

@@ -4,10 +4,22 @@ import java.util.LinkedList;
 import controller.SpriteManager;
 import controller.TheDirector;
 import model.GameObject;
-import model.GameObject.ImageGameObject;
 
 public class GameObjectDrawer {
-	public GameObjectDrawer() {;}
+	public GameObjectDrawer() {
+;
+	}
+	public enum ImageGameObject {//a mettre dans view ? 
+	    PLAYER,
+	    MONSTER,
+	    EXIT,
+	    SWITCH_ON,
+	    SWITCH_OFF,
+	    CANDY1,
+	    CANDY2,
+	    CANDY3,
+	    CANDY4
+	}
 	
     /*public static void drawEntities(){
         LinkedList<GameObject> gameObjects = TheDirector.getGameObject();

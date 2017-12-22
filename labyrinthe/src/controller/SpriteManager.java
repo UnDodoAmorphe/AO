@@ -1,7 +1,7 @@
 package controller;
 
 import javafx.scene.image.Image;
-import model.GameObject.ImageGameObject;
+import view.GameObjectDrawer.ImageGameObject;
 
 import java.util.HashMap;
 
