@@ -4,11 +4,17 @@ import view.GameObjectDrawer.ImageGameObject;
 
 public abstract class GameObject {
 	protected Sommet sommet;
+	protected Arc edge;
 	private KindOfGameObject type;
 	private ImageGameObject image;
 
 	public GameObject (Sommet sommet, KindOfGameObject type){
 		this.sommet = sommet;
+		this.type = type;
+	}
+	
+	public GameObject (Arc edge, KindOfGameObject type){
+		this.edge = edge;
 		this.type = type;
 	}
 	

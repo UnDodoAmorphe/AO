@@ -1,6 +1,7 @@
 package model;
-import com.sun.javafx.geom.Edge;
+
 import model.Arc.Type;
+import view.GameObjectDrawer.ImageGameObject;
 
 public class Doors extends GameObject {
 
@@ -9,15 +10,10 @@ public class Doors extends GameObject {
 
     public Doors() {
         super(KindOfGameObject.DOORS);
-        Labyrinthe lab = Labyrinthe.getInstance();
-        isOpen = false;
-        this.edge = lab.getGraphe().randomEdge();
-        this.edge.setType(Type.CLOSED_DOOR);
-        setImageGameObject(ImageGameObject.SWITCH_OFF);
     }
 
-    public Doors(int x, int y) {
-        super(x, y, KindOfGameObject.DOORS);
+    public Doors(Arc edge) {
+        super(edge, KindOfGameObject.DOORS);
         isOpen = false;
         setImageGameObject(ImageGameObject.SWITCH_OFF);
     }
@@ -27,6 +23,14 @@ public class Doors extends GameObject {
         isOpen = !isOpen;
         this.edge.setType(isOpen ? Type.OPENED_DOOR : Type.CLOSED_DOOR);
         setImageGameObject(isOpen ? ImageGameObject.SWITCH_ON : ImageGameObject.SWITCH_OFF);
+    }
+    
+    public void setOpened() {
+    	isOpen=true;
+    }
+    
+    public boolean isOpened() {
+    	return isOpen;
     }
 
 }
