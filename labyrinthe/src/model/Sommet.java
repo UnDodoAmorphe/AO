@@ -23,7 +23,7 @@ public Sommet(int x, int y, Graph g) {
 }
 
 public boolean containObject() {
-	if (this.obj==null) {
+	if (this.obj == null) {
 		return false;
 	}
 	else {

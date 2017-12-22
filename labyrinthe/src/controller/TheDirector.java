@@ -3,11 +3,14 @@ package controller;
 import java.util.LinkedList;
 import java.util.Random;
 
+import model.Arc;
 import model.GameObject;
 import model.GameObject.KindOfGameObject;
+import model.Graph;
 import model.Labyrinthe;
 import model.Labyrinthe.Directions;
 import model.Player;
+import model.Sommet;
 
 public class TheDirector {
 
@@ -120,19 +123,12 @@ public class TheDirector {
     	}
     }
 
-    /*public static boolean tryMoveCharacter(Player player, Directions dir){
-        A REFAIRE
-        //recuperer les aretes du sommet sur lesquelles se trouve le joueur. On prend la direction en parametre, on regarde le type de l'arc et PAF, ca fait des chocapics. Yolo.
+    public static void tryMoveCharacter(Player player, Directions dir){
         int x = player.getX();
         int y = player.getY();
-        boolean able = !maze.getWallsAt(x, y).contains(dir) || maze.getDoorsAt(x, y, false).contains(dir);//a adapter a notre code. Pour l'instant : maze = labyrinthe
-        if (able) {
+        Sommet vertex= lab.getGraphe().getVertex(x, y);
+        if (vertex.hasArcOpen(dir)) {
         	player.move(dir);
-        	if(player.getType() == KindOfGameObject.PLAYER)
-        		maze.updateDistFromPlayer(getPlayer().getX(), TheDirector.getPlayer().getY());
-            EventManager.manageCollision();
         }
-    
-        return able;
-    }*/
+    }
 }

@@ -7,12 +7,12 @@ import controller.TheDirector;
 // impl�menter "est ce qu'il reste des candies dans le graph"
 public class Candy extends GameObject{
     public Candy(int x, int y) {
-        super(x, y, KindOfGameObject.BONUS);
+        super(x, y, KindOfGameObject.CANDY);
         randomizeSprite();//a modif
     }
 
     public Candy() {
-        super(KindOfGameObject.BONUS);
+        super(KindOfGameObject.CANDY);
         randomizeSprite();
     }
 
