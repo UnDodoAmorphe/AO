@@ -1,6 +1,8 @@
 package controller;
 import java.util.Random;
 
+import model.Arc;
+import model.Button;
 import model.Candy;
 import model.Doors;
 import model.Exit;
@@ -9,42 +11,47 @@ import model.Player;
 
 public class SpawnManager {
 
-	public static void spawnAtRandomPosition(GameObject e){
-		Random r = TheDirector.getRandom();
-		int x = r.nextInt(TheDirector.getLab().getGraphe().getSizeX());
-		int y = r.nextInt(TheDirector.getLab().getGraphe().getSizeY());
-		spawnEntityAtPosition(e, x, y);
-	}
+
 
 	public static void spawnEntityAtPosition(GameObject e, int x, int y){
-		e.setX(x);
-		e.setY(y);
-		TheDirector.addGameObject(e);
-	}
+			e.setX(x);
+			e.setY(y);
+			TheDirector.addGameObject(e);
+		}
+	
 
-	public static void spawnPlayerAtRandomPosition(){
+	public static GameObject spawnPlayer(int x, int y){
 		GameObject e = new Player(true);
-		spawnAtRandomPosition(e);
+		spawnEntityAtPosition(e, x, y);
+		return e;
 	}
-
-	public static void spawnCandyAtRandomPosition(){
+	public static GameObject spawnButton(int x, int y){
+		GameObject e = new Button();
+		spawnEntityAtPosition(e, x, y);
+		return e;
+	}
+	public static GameObject spawnCandy(int x, int y){
 		GameObject e = new Candy();
-		spawnAtRandomPosition(e);
+		spawnEntityAtPosition(e, x, y);
+		return e;
 	}
 
-	public static void spawnMonterAtRandomPosition() {
+	public static GameObject spawnMonster(int x, int y) {
 		GameObject e = new Player(false);
-		spawnAtRandomPosition(e);
+		spawnEntityAtPosition(e, x, y);
+		return e;
 	}
 
-	public static void spawnDoorsAtRandomPosition() {
-		GameObject e = new Doors();
-		spawnAtRandomPosition(e);
+	public static GameObject spawnDoor(Arc edge) {
+		GameObject e = new Doors(edge);
+		spawnEntityAtPosition(e, x, y);
+		return e;
 	}
 
-	public static void spawnExitAtRandomPosition() {
+	public static GameObject spawnExitDoor(int x, int y) {
 		GameObject e = new Exit();
-		spawnAtRandomPosition(e);
+		spawnEntityAtPosition(e, x, y);
+		return e;
 	}
 }
 

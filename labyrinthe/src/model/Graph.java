@@ -26,6 +26,13 @@ public class Graph extends SimpleGraph<Sommet, Arc> {
 	    public Sommet getVertex(int x, int y){
 	        return sommets[x][y];
 	    }
+		Sommet getEmptyVertex() {
+			 Sommet randomVertex =this.graph.randomVertex();
+			 while (randomVertex.containObject()) {
+				 randomVertex= this.graph.randomVertex();
+			 }
+			 return randomVertex;
+		 }	
 
 	    public int getSizeX() {
 	        return sizeX;

@@ -17,7 +17,8 @@ public abstract class GameObject {
 	    MONSTER,
 	    EXIT,
 	    DOORS,
-	    BONUS
+	    CANDY,
+	    BUTTON
 	}
 	
 	public enum ImageGameObject {//a mettre dans view ? 
