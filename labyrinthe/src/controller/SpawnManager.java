@@ -9,6 +9,7 @@ import model.Player;
 import model.Sommet;
 
 public class SpawnManager {
+	private static Sommet sommet;
 
 	public static void spawnAtRandomPosition(GameObject e){
 		Random r = TheDirector.getRandom();
@@ -18,7 +19,7 @@ public class SpawnManager {
 	}
 
 	public static void spawnEntityAtPosition(GameObject e, Sommet sommet){
-		e.setSommet(sommet);
+		e.setSommet(sommet.getX(),sommet.getY());
 		TheDirector.addGameObject(e);
 	}
 
