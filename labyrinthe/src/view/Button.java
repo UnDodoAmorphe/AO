@@ -1,6 +1,8 @@
 package view;
 
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import view.GameObjectDrawer.ImageGameObject;
 
 public class Button extends A_Static {
 
@@ -13,5 +15,6 @@ public class Button extends A_Static {
 	public void setState () {
 		
 	}
+
 
 }

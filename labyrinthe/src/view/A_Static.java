@@ -2,7 +2,7 @@ package view;
 
 import controller.SpriteManager;
 import javafx.scene.image.Image;
-import model.GameObject.ImageGameObject;
+import view.GameObjectDrawer.ImageGameObject;
 
 public abstract class A_Static implements I_Behaviour {
 

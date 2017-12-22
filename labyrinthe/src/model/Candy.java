@@ -3,11 +3,12 @@ package model;
 import java.util.Random;
 
 import controller.TheDirector;
+import view.GameObjectDrawer.ImageGameObject;
 
 // impl�menter "est ce qu'il reste des candies dans le graph"
 public class Candy extends GameObject{
-    public Candy(int x, int y) {
-        super(x, y, KindOfGameObject.CANDY);
+    public Candy(Sommet sommet) {
+    	 super(sommet, KindOfGameObject.CANDY);
         randomizeSprite();//a modif
     }
 
@@ -28,12 +29,6 @@ public class Candy extends GameObject{
     	TheDirector.removeGameObject(this);
     }
 
-
-    public void addCandy(Sommet vertex) {
-    	//Candy myCandy= new Candy();//(vertex.getX(), vertex.getY());
-    	this.x=vertex.getX();
-    	this.y=vertex.getY();
-    }
 }
 
 

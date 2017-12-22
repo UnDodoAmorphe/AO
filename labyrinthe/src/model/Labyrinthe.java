@@ -91,48 +91,44 @@ public class Labyrinthe {
 	}
 
 	
-	//FONCTIONS A FAIRE :
-	//Boutons /monstres /Player /sortie /porte 
 	 public void initialize(int nbButton, int nbMonsters) {
 		 
-		//placer exit Door --> à revoir
-		Sommet exitDoorVertex =this.graph.getEmptyVertex();
-		exitDoorVertex.setObj(SpawnManager.spawnExitDoor(exitDoorVertex.getX(), exitDoorVertex.getY()));
+		// Place porte de sortie
+		Sommet exitDoorVertex = graph.getEmptyVertex();
+		exitDoorVertex.setObj(SpawnManager.spawnExitDoor(exitDoorVertex));
 		
 		
-		//placer le player
-		Sommet playerVertex =this.graph.getEmptyVertex();
-		playerVertex.setObj(SpawnManager.spawnPlayer(playerVertex.getX(), playerVertex.getY()));
+		// Place le player
+		Sommet playerVertex = graph.getEmptyVertex();
+		playerVertex.setObj(SpawnManager.spawnPlayer(playerVertex));
 		
-		//place les boutons puis les portes fermées en fonction du nb de boutons en argument
-		//  --> place les boutons 
+		//place les portes fermées puis les boutons en fonction du nb de boutons en argument
+		//  --> place les portes fermées 
 		for (int i=0; i<nbButton; i++) {
-			 Sommet buttonVertex =this.graph.getEmptyVertex();
-			 buttonVertex.setObj(SpawnManager.spawnButton( buttonVertex.getX(),buttonVertex.getY()));
-
-			 
-	
-		//  --> place les portes fermées
-			 Arc randomEdge=this.graph.randomEdge();
-			 while (randomEdge.getType() != (Type.WALL)) {
-				 randomEdge= this.graph.randomEdge();
-			 }
-			 randomEdge.setType(Type.CLOSED_DOOR);
-			 SpawnManager.spawnDoor(randomEdge);
+			
+					 Arc randomEdge = graph.randomEdge();
+					 Sommet buttonVertex = graph.getEmptyVertex();
+					 while (randomEdge.getType() != (Type.WALL)) {
+						 randomEdge = graph.randomEdge();
+					 }
+					 randomEdge.setType(Type.CLOSED_DOOR);	 
+					 buttonVertex.setObj(SpawnManager.spawnButton (buttonVertex, (Doors)SpawnManager.spawnDoor(randomEdge)));
+					 
+		
 		 }
 		// place les monstres
 		for (int i=0; i<nbMonsters; i++) {
-			 Sommet buttonVertex =this.graph.getEmptyVertex();
-			 buttonVertex.setObj(SpawnManager.spawnMonster(buttonVertex.getX(),buttonVertex.getY()));
+			 Sommet buttonVertex = graph.getEmptyVertex();
+			 buttonVertex.setObj(SpawnManager.spawnMonster(buttonVertex));
 		}
 		
 		
 		//place les bonbons sur toutes les cases restantes 
-		 for (int i=0; i< this.graph.getSizeX(); i++) {
-			 for (int j=0; j<graph.getSizeY(); i++) {
-				 Sommet myVertex = this.graph.getVertex(i, j); 
+		 for (int i=0; i< graph.getSizeX(); i++) {
+			 for (int j=0; j < graph.getSizeY(); i++) {
+				 Sommet myVertex = graph.getVertex(i, j); 
 				 if (!myVertex.containObject()) {
-				 	 myVertex.setObj(SpawnManager.spawnCandy(myVertex.getX(),myVertex.getY()));
+				 	 myVertex.setObj(SpawnManager.spawnCandy(myVertex));
 					 
 				 }
 			 }

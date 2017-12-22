@@ -1,37 +1,32 @@
 package model;
 
+import view.GameObjectDrawer.ImageGameObject;
+
 public abstract class GameObject {
-	protected int x;
-	protected int y;
+	protected Sommet sommet;
+	protected Arc edge;
 	private KindOfGameObject type;
 	private ImageGameObject image;
 
-	public GameObject (int x, int y, KindOfGameObject type){
-		this.x = x;
-		this.y = y;
+	public GameObject (Sommet sommet, KindOfGameObject type){
+		this.sommet = sommet;
 		this.type = type;
 	}
-	
+
+	public GameObject (Arc edge, KindOfGameObject type){
+		this.edge = edge;
+		this.type = type;
+	}
+
 	public enum KindOfGameObject {
-	    PLAYER,
-	    MONSTER,
-	    EXIT,
-	    DOORS,
-	    CANDY,
-	    BUTTON
+		PLAYER,
+		MONSTER,
+		EXIT,
+		DOORS,
+		CANDY,
+		BUTTON
 	}
-	
-	public enum ImageGameObject {//a mettre dans view ? 
-	    PLAYER,
-	    MONSTER,
-	    EXIT,
-	    SWITCH_ON,
-	    SWITCH_OFF,
-	    CANDY1,
-	    CANDY2,
-	    CANDY3,
-	    CANDY4
-	}
+
 
 	public GameObject (KindOfGameObject type){
 		this.type = type;
@@ -41,21 +36,14 @@ public abstract class GameObject {
 		return type;
 	}
 
-	public int getX() {
-		return x;
-	}
+	 public Sommet getSommet() {
+	        return sommet;
+	    }
 
-	public int getY() {
-		return y;
-	}
-
-	public void setX(int x) {
-		this.x = x;
-	}
-
-	public void setY(int y) {
-		this.y = y;
-	}
+	 public void setSommet(int x, int y) {
+	        sommet.setX(x);
+	        sommet.setY(y);
+	    }
 
 	public void setImageGameObject(ImageGameObject ImageGameObject) {
 		this.image = ImageGameObject;
@@ -65,9 +53,9 @@ public abstract class GameObject {
 		return image;
 	}
 
-	public boolean ifCollision(GameObject e){
-		return (this.x == e.x && this.y == e.y);
-	}
+	 public boolean ifCollision(GameObject e){
+	        return (this.sommet == e.sommet);
+	    }
 
 	public abstract void eventCollision();
 

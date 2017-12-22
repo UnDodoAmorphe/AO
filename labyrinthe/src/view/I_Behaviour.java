@@ -2,7 +2,7 @@ package view;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import model.GameObject.ImageGameObject;
+import view.GameObjectDrawer.ImageGameObject;
 
 public interface I_Behaviour {
 	

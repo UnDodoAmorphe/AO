@@ -4,31 +4,44 @@ import java.util.LinkedList;
 import controller.SpriteManager;
 import controller.TheDirector;
 import model.GameObject;
-import model.GameObject.ImageGameObject;
 
 public class GameObjectDrawer {
-	public GameObjectDrawer() {;}
 	
-    /*public static void drawEntities(){
-        LinkedList<GameObject> gameObjects = TheDirector.getGameObject();
-        cleanEntities();
-        for (GameObject e : gameObjects){
-            ImageGameObject t = e.getImageGameObject();
-            drawSprite(e.getX(), e.getY(), SpriteManager.getSprite(t));// a changer
-        }
+	public GameObjectDrawer() {
+		
+	}
+	public enum ImageGameObject {
+		PLAYER,
+		MONSTER,
+		EXIT,
+		SWITCH_ON,
+		SWITCH_OFF,
+		CANDY1,
+		CANDY2,
+		CANDY3,
+		CANDY4
+	} /*
 
-        renderEntities();
-    }
+	public static void drawEntities(){
+		LinkedList<GameObject> gameObjects = TheDirector.getGameObject();
+		cleanEntities();
+		for (GameObject e : gameObjects){
+			ImageGameObject t = e.getImageGameObject();
+			drawSprite(e.getSommet().getX(), e.getSommet().getY(), SpriteManager.getHashmap(t));
+		}
 
-    public static void cleanEntities(){
-        for (Node n : drawnEntities)
-            pane.getChildren().remove(n);
+		renderEntities();
+	}
 
-        drawnEntities = new Vector<>();
-    }
+	public static void cleanEntities(){
+		for (Node n : drawnEntities)
+			pane.getChildren().remove(n);
 
-    public static void renderEntities(){
-        for (Node n : drawnEntities)
-            pane.getChildren().add(n);
-    }*/
+		drawnEntities = new Vector<>();
+	}
+
+	public static void renderEntities(){
+		for (Node n : drawnEntities)
+			pane.getChildren().add(n);
+	}/ */
 }

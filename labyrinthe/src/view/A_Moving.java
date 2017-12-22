@@ -3,7 +3,7 @@ package view;
 import controller.SpriteManager;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import model.GameObject.ImageGameObject;
+import view.GameObjectDrawer.ImageGameObject;
 
 public abstract class A_Moving implements I_Behaviour {
 

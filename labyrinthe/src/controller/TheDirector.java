@@ -88,7 +88,7 @@ public class TheDirector {
     			return false;
     	}
     	for(Player monsters : monsters) {
-    		if(monsters.getX() == newX && monsters.getY() == newY)
+    		if(monsters.getSommet().getX() == newX && monsters.getSommet().getY() == newY)
     			return true;
     	}
     	return false;
@@ -110,9 +110,9 @@ public class TheDirector {
 	        for(Player monster : warehouse) {
 	        	if(bitmap[warehouse.indexOf(monster)] == 1)
 	        		continue;
-	        	Directions dir = Labyrinthe.getMonsterDirection(monster.getX(), monster.getY());//a definir dans classe monstres extend gameobject
+	        	Directions dir = Labyrinthe.getMonsterDirection(monster.getSommet().getX(), monster.getSommet().getY());//a definir dans classe monstres extend gameobject
 	        	if(dir != null) {
-	        		boolean isMonster = isMonster(monster.getX(), monster.getY(), dir);
+	        		boolean isMonster = isMonster(monster.getSommet().getX(), monster.getSommet().getY(), dir);
 	        		if(!isMonster) {
 	        			//hasMoved = tryMoveCharacter(monster, dir);
 	        			if(hasMoved)
@@ -124,8 +124,8 @@ public class TheDirector {
     }
 
     public static void tryMoveCharacter(Player player, Directions dir){
-        int x = player.getX();
-        int y = player.getY();
+        int x = player.getSommet().getX();
+        int y = player.getSommet().getY();
         Sommet vertex= lab.getGraphe().getVertex(x, y);
         if (vertex.hasArcOpen(dir)) {
         	player.move(dir);

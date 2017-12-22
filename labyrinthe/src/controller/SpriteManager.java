@@ -1,7 +1,7 @@
 package controller;
 
 import javafx.scene.image.Image;
-import model.GameObject.ImageGameObject;
+import view.GameObjectDrawer.ImageGameObject;
 
 import java.util.HashMap;
 
@@ -21,9 +21,9 @@ public class SpriteManager {
         spriteTable.put(ImageGameObject.SWITCH_ON, path + "/button_open.png");
         spriteTable.put(ImageGameObject.EXIT, path + "/door_open.png");
     }
-    
+
    public static HashMap<ImageGameObject, String> getHashmap() {
-	   return spriteTable;
+       return spriteTable;
    }
-    
+
 }

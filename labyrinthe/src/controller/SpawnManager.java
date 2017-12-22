@@ -8,49 +8,47 @@ import model.Doors;
 import model.Exit;
 import model.GameObject;
 import model.Player;
+import model.Sommet;
 
 public class SpawnManager {
 
+	public static void spawnEntityAtPosition(GameObject e, Sommet sommet){
+		e.setSommet(sommet.getX(),sommet.getY());
+		TheDirector.addGameObject(e);
+	}
 
 
-	public static void spawnEntityAtPosition(GameObject e, int x, int y){
-			e.setX(x);
-			e.setY(y);
-			TheDirector.addGameObject(e);
-		}
-	
-
-	public static GameObject spawnPlayer(int x, int y){
+	public static GameObject spawnPlayer(Sommet sommet){
 		GameObject e = new Player(true);
-		spawnEntityAtPosition(e, x, y);
+		spawnEntityAtPosition(e, sommet);
 		return e;
 	}
-	public static GameObject spawnButton(int x, int y){
-		GameObject e = new Button();
-		spawnEntityAtPosition(e, x, y);
+	public static GameObject spawnButton(Sommet sommet, Doors door){
+		GameObject e = new Button(sommet, door);
+		spawnEntityAtPosition(e, sommet);
 		return e;
 	}
-	public static GameObject spawnCandy(int x, int y){
+	public static GameObject spawnCandy(Sommet sommet){
 		GameObject e = new Candy();
-		spawnEntityAtPosition(e, x, y);
+		spawnEntityAtPosition(e, sommet);
 		return e;
 	}
 
-	public static GameObject spawnMonster(int x, int y) {
+	public static GameObject spawnMonster(Sommet sommet) {
 		GameObject e = new Player(false);
-		spawnEntityAtPosition(e, x, y);
+		spawnEntityAtPosition(e, sommet);
 		return e;
 	}
 
 	public static GameObject spawnDoor(Arc edge) {
 		GameObject e = new Doors(edge);
-		spawnEntityAtPosition(e, x, y);
+		TheDirector.addGameObject(e);
 		return e;
 	}
 
-	public static GameObject spawnExitDoor(int x, int y) {
+	public static GameObject spawnExitDoor(Sommet sommet) {
 		GameObject e = new Exit();
-		spawnEntityAtPosition(e, x, y);
+		spawnEntityAtPosition(e, sommet);
 		return e;
 	}
 }
