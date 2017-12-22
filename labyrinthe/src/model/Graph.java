@@ -6,7 +6,16 @@ import org.jgrapht.graph.SimpleGraph;
 
 import model.Labyrinthe.Directions;
 import model.Arc.Type;
-
+/**
+ * The Graph class extends the SimpleGraph of JGraphT
+ * The created graph correspond to a perfect maze and will be used to create the game board 
+ * 
+ * @author DE MECQUENEM N
+ * @author DEJONGHE V
+ * @author GAUTIER F
+ * @author GROSJEAN L
+ * 
+ */
 public class Graph extends SimpleGraph<Sommet, Arc> {
 	
 	private int sizeX = 16;
@@ -26,7 +35,11 @@ public class Graph extends SimpleGraph<Sommet, Arc> {
 	    public Sommet getVertex(int x, int y){
 	        return sommets[x][y];
 	    }
-	    
+	    /**
+         * Return a random empty Vertex of the graph
+         * 
+         * @return a random Vertex which does not contain an object
+         */
 		public Sommet getEmptyVertex() {
 			 Sommet randomVertex = this.randomVertex();
 			 while (randomVertex.containObject()) {
@@ -54,7 +67,10 @@ public class Graph extends SimpleGraph<Sommet, Arc> {
 	    public void createVertexArray(){
 	        sommets = new Sommet[sizeX][sizeY];
 	    }
-	    
+	    /**
+         * Create a Graph of sizeX*sizeY which correspond to the maze
+         * 
+         */
 	    public void generateGraph () {
 	    int startX = random.nextInt(sizeX);
         int startY = random.nextInt(sizeY);

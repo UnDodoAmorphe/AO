@@ -11,7 +11,14 @@ import model.Labyrinthe;
 import model.Labyrinthe.Directions;
 import model.Player;
 import model.Sommet;
-
+/**
+ *TheDirector class will be in charge of the creation, deletion and managing of the gameObjects of the game.
+ * 
+ * @author DE MECQUENEM N
+ * @author DEJONGHE V
+ * @author GAUTIER F
+ * 
+ */
 public class TheDirector {
 
     private static LinkedList<GameObject> gameObjectList;

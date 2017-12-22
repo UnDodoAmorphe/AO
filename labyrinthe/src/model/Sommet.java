@@ -4,7 +4,16 @@ import java.util.Vector;
 
 import model.Labyrinthe.Directions;
 import model.Arc.Type;
-
+/**
+ * The Sommet class correspond to the Vertexes of a Graph.
+ * It can contain a GameObject like a player or a candy.
+ *  
+ * @author DE MECQUENEM N
+ * @author DEJONGHE V
+ * @author GAUTIER F
+ * @author GROSJEAN L
+ * 
+ */
 public class Sommet implements Comparable<Sommet>{
 	private int x, y, nbr;
 	private Graph graph;

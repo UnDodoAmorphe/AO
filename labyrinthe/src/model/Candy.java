@@ -4,7 +4,15 @@ import java.util.Random;
 
 import controller.TheDirector;
 import view.GameObjectDrawer.ImageGameObject;
-
+/**
+ * The Button class defines the GameObjects that the player need to collect to open the exit door and win the game
+ * 
+ * @author DE MECQUENEM N
+ * @author DEJONGHE V
+ * @author GAUTIER F
+ * @author GROSJEAN L
+ * 
+ */
 // impl�menter "est ce qu'il reste des candies dans le graph"
 public class Candy extends GameObject{
     public Candy(Sommet sommet) {

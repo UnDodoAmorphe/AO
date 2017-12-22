@@ -4,7 +4,13 @@ import javafx.scene.image.Image;
 import view.GameObjectDrawer.ImageGameObject;
 
 import java.util.HashMap;
-
+/**
+ * The SpriteManager class attributes and stores the sprites corresponding to the type of GameObjects
+ * 
+ * @author DEJONGHE V
+ * @author GAUTIER F
+ * 
+ */
 public class SpriteManager {
     private static HashMap<ImageGameObject, String> spriteTable;
 

@@ -7,6 +7,16 @@ import org.jgrapht.graph.DefaultEdge;
 import model.Arc.Type;
 import model.Labyrinthe.Directions;
 
+
+/**
+ * Arc is the Edge class of a graph
+ * 
+ * @author DE MECQUENEM N
+ * @author DEJONGHE V
+ * @author GAUTIER F
+ * @author GROSJEAN L
+ * 
+ */
 @SuppressWarnings("serial")
 public class Arc extends DefaultEdge {
 	

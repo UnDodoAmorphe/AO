@@ -1,5 +1,13 @@
 package model;
-
+/**
+ * The Button class defines the GameObjects that will open or close a door when the player step on it
+ * 
+ * @author DE MECQUENEM N
+ * @author DEJONGHE V
+ * @author GAUTIER F
+ * @author GROSJEAN L
+ * 
+ */
 public class Button extends GameObject{
 
 	public TypeB buttonType;

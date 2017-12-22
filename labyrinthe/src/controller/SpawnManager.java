@@ -9,7 +9,14 @@ import model.Exit;
 import model.GameObject;
 import model.Player;
 import model.Sommet;
-
+/**
+ *The SpawnManager class will take care of the creation and the start positioning of GameObjects.  
+ * 
+ * @author DE MECQUENEM N
+ * @author GAUTIER F
+ * 
+ * 
+ */
 public class SpawnManager {
 
 	public static void spawnEntityAtPosition(GameObject e, Sommet sommet){

@@ -2,7 +2,15 @@ package model;
 
 import model.Arc.Type;
 import view.GameObjectDrawer.ImageGameObject;
-
+/**
+ * The Doors class defines the GameObjects that can be opened or closed depending on the Edge type
+ * 
+ * @author DE MECQUENEM N
+ * @author DEJONGHE V
+ * @author GAUTIER F
+ * @author GROSJEAN L
+ * 
+ */
 public class Doors extends GameObject {
 
     private boolean isOpen;
@@ -18,7 +26,7 @@ public class Doors extends GameObject {
         setImageGameObject(ImageGameObject.SWITCH_OFF);
     }
 
-    @Override
+ 
     public void eventCollision() {
         isOpen = !isOpen;
         this.edge.setType(isOpen ? Type.OPENED_DOOR : Type.CLOSED_DOOR);
