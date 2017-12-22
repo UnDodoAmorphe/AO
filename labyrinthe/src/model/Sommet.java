@@ -9,21 +9,27 @@ public class Sommet implements Comparable<Sommet>{
 private int x, y, nbr;
 private Graph graph;
 private Vector<Arc> arcs;
+private Object obj; 
 
-private boolean containCandy;
-private boolean containButton;
+
 
 public Sommet(int x, int y, Graph g) {
 	this.x=x;
 	this.y=y;
 	graph = g;
 	arcs = new Vector<>();
-
-	this.containCandy=false;
-	this.containButton=false;
+	this.obj = null;
 
 }
 
+public boolean containObject() {
+	if (this.obj==null) {
+		return false;
+	}
+	else {
+		return true;
+	}
+}
 @Override
 public int compareTo(Sommet o) {
 	if (x != o.x)
@@ -92,14 +98,6 @@ public int getNbr() {
 	return nbr;
 }
 
-public boolean containsCandy() {
-	return this.containCandy;
-}
-
-
-public boolean containsButton() {
-	return this.containButton;
-}
 
 public void setNbr(int nbr) {
 	this.nbr = nbr;
@@ -111,5 +109,13 @@ public void setX(int x) {
 
 public void setY(int y) {
 	this.y = y;
+}
+
+public Object getObj() {
+	return obj;
+}
+
+public void setObj(Object obj) {
+	this.obj = obj;
 }
 }

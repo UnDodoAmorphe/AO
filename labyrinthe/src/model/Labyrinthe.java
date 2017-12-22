@@ -1,22 +1,23 @@
 package model;
 import java.util.ArrayList;
+
 import java.util.Random;
 import java.util.Vector;
 
 import controller.Controller;
 import model.Arc.Type;
 import model.Labyrinthe.Directions;
-
+import controller.SpawnManager;
 public class Labyrinthe {
 
-	private Graph graph = null;
+	private static Graph graph = null;
 	private static Labyrinthe labyrinthe = null;
 
 	private Labyrinthe() {
 
 	}
 
-	public Graph getGraphe() {
+	public static Graph getGraphe() {
 		return graph;
 	}
 
@@ -88,32 +89,56 @@ public class Labyrinthe {
 
 
 	}
+
+	
 	//FONCTIONS A FAIRE :
-	//Boutons/monstres/Player/sortie/porte
-	 /*public boolean putCandy() {
-	    	if ((isButton()==true) || (isCandy()==true)) {
-	    		return false;
-	    	}
-	    	else {
-	    		Candy myCandy = new Candy();
-	    		myCandy.addCandy(this);
-	    		this.containCandy = true;
-	    		return true;
-	    	}
-	    }
-	 
-	 public boolean setButton() {
-			if ((isButton()==true) || (isCandy()==true)) {
-				return false;
-			}
-			else {
-				Button myButton = new Button();
-				myButton.addButton(this);
-				this.containButton = true;
-				return true;
-			}
+	//Boutons /monstres /Player /sortie /porte 
+	 public void initialize(int nbButton, int nbMonsters) {
+		 
+		//placer exit Door --> à revoir
+		Sommet exitDoorVertex =this.graph.getEmptyVertex();
+		exitDoorVertex.setObj(SpawnManager.spawnExitDoor(exitDoorVertex.getX(), exitDoorVertex.getY()));
+		
+		
+		//placer le player
+		Sommet playerVertex =this.graph.getEmptyVertex();
+		playerVertex.setObj(SpawnManager.spawnPlayer(playerVertex.getX(), playerVertex.getY()));
+		
+		//place les boutons puis les portes fermées en fonction du nb de boutons en argument
+		//  --> place les boutons 
+		for (int i=0; i<nbButton; i++) {
+			 Sommet buttonVertex =this.graph.getEmptyVertex();
+			 buttonVertex.setObj(SpawnManager.spawnButton( buttonVertex.getX(),buttonVertex.getY()));
+
+			 
+	
+		//  --> place les portes fermées
+			 Arc randomEdge=this.graph.randomEdge();
+			 while (randomEdge.getType() != (Type.WALL)) {
+				 randomEdge= this.graph.randomEdge();
+			 }
+			 randomEdge.setType(Type.CLOSED_DOOR);
+			 SpawnManager.spawnDoor(randomEdge);
+		 }
+		// place les monstres
+		for (int i=0; i<nbMonsters; i++) {
+			 Sommet buttonVertex =this.graph.getEmptyVertex();
+			 buttonVertex.setObj(SpawnManager.spawnMonster(buttonVertex.getX(),buttonVertex.getY()));
 		}
-*/
+		
+		
+		//place les bonbons sur toutes les cases restantes 
+		 for (int i=0; i< this.graph.getSizeX(); i++) {
+			 for (int j=0; j<graph.getSizeY(); i++) {
+				 Sommet myVertex = this.graph.getVertex(i, j); 
+				 if (!myVertex.containObject()) {
+				 	 myVertex.setObj(SpawnManager.spawnCandy(myVertex.getX(),myVertex.getY()));
+					 
+				 }
+			 }
+		}
+	 }
+
 
 	public static Directions getMonsterDirection(int x, int y) {
 		// TODO Auto-generated method stub
